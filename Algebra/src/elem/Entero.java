@@ -7,6 +7,10 @@ public class Entero implements Elem {
 	public Entero(int elem) {
 		this.elem = elem;
 	}
+	
+	public Elem clone() {
+		return new Entero(elem);
+	}
 
 	public int getElem() {
 		return elem;

@@ -45,5 +45,26 @@ public abstract class DominioEuclideo {
 			return new Elem[] { elems[0], elems[2], resta(elems[1], (producto((division(e1, e2)), elems[2]))) };
 		}
 	}
+	
+	public Elem chinoRestos(Elem [] coprimes, Elem [] elems) {
+		if (coprimes.length != elems.length) {
+			return null;
+		} else {
+			// Inicialización
+			Elem m = coprimes[0].clone();
+			for (int i = 1; i < coprimes.length; ++i) {
+				m = producto(m, coprimes[i]);
+			}
+			// Computo algoritmo
+			Elem result = getCero();
+			for (int i = 0; i < coprimes.length; ++i) {
+				Elem n = division(m, coprimes[i]);
+				Elem[] auxExtendido = euclidesExtendido(n, coprimes[i]);
+				Elem c = restoDiv(producto(auxExtendido[1], elems[i]), coprimes[i]);
+				result = suma(result, producto(c,n));
+			}
+			return result;
+		}
+	}
 
 }

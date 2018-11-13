@@ -7,6 +7,10 @@ public class Real implements Elem {
 	public Real(double elem) {
 		this.elem = elem;
 	}
+	
+	public Elem clone() {
+		return new Real(elem);
+	}
 
 	public double getElem() {
 		return elem;
