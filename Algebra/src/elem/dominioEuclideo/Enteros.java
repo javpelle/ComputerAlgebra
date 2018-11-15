@@ -1,56 +1,55 @@
 package elem.dominioEuclideo;
 
-import elem.Elem;
-import elem.Entero;
-
-public class Enteros extends DominioEuclideo {
-
-	private static Entero cero = new Entero(0);
-	private static Entero uno = new Entero(1);
+public class Enteros extends DominioEuclideo<Integer> {
 
 	@Override
-	public boolean igual(Elem e1, Elem e2) {
-		return ((Entero) e1).getElem() == ((Entero) e2).getElem();
+	public boolean igual(Integer e1, Integer e2) {
+		return e1 == e2;
 	}
 
 	@Override
-	public Elem suma(Elem e1, Elem e2) {
-		return new Entero(((Entero) e1).getElem() + ((Entero) e2).getElem());
+	public Integer suma(Integer e1, Integer e2) {
+		return e1 + e2;
 	}
 
 	@Override
-	public Elem resta(Elem e1, Elem e2) {
-		return new Entero(((Entero) e1).getElem() - ((Entero) e2).getElem());
+	public Integer resta(Integer e1, Integer e2) {
+		return e1 - e2;
 	}
 
 	@Override
-	public Elem producto(Elem e1, Elem e2) {
-		return new Entero(((Entero) e1).getElem() * ((Entero) e2).getElem());
+	public Integer producto(Integer e1, Integer e2) {
+		return e1 * e2;
 	}
 
 	@Override
-	public Elem division(Elem e1, Elem e2) {
-		return new Entero(((Entero) e1).getElem() / ((Entero) e2).getElem());
+	public Integer division(Integer e1, Integer e2) {
+		return e1 / e2;
 	}
 
 	@Override
-	public int norma(Elem e) {
-		return ((Entero) e).getAbsElem();
+	public int norma(Integer e) {
+		return Math.abs(e);
 	}
 
 	@Override
-	public Elem restoDiv(Elem e1, Elem e2) {
-		return new Entero(((Entero) e1).getElem() % ((Entero) e2).getElem());
+	public Integer restoDiv(Integer e1, Integer e2) {
+		return e1 % e2;
 	}
 
 	@Override
-	public Elem getCero() {
-		return cero;
+	public Integer getCero() {
+		return 0;
 	}
 
 	@Override
-	public Elem getUno() {
-		return uno;
+	public Integer getUno() {
+		return 1;
+	}
+
+	@Override
+	public Integer clone(Integer elem) {
+		return new Integer(elem);
 	}
 
 }

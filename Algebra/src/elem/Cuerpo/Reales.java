@@ -1,46 +1,40 @@
 package elem.Cuerpo;
 
-import elem.Elem;
-import elem.Real;
-
-public class Reales extends Cuerpo {
-
-	private static Real cero = new Real(0);
-	private static Real uno = new Real(1);
+public class Reales extends Cuerpo<Double> {
 
 	@Override
-	public boolean igual(Elem e1, Elem e2) {
-		return ((Real) e1).getElem() == ((Real) e2).getElem();
+	public boolean igual(Double e1, Double e2) {
+		return e1 == e2;
 	}
 
 	@Override
-	public Elem suma(Elem e1, Elem e2) {
-		return new Real(((Real) e1).getElem() + ((Real) e2).getElem());
+	public Double suma(Double e1, Double e2) {
+		return e1 + e2;
 	}
 
 	@Override
-	public Elem resta(Elem e1, Elem e2) {
-		return new Real(((Real) e1).getElem() - ((Real) e2).getElem());
+	public Double resta(Double e1, Double e2) {
+		return e1 - e2;
 	}
 
 	@Override
-	public Elem producto(Elem e1, Elem e2) {
-		return new Real(((Real) e1).getElem() * ((Real) e2).getElem());
+	public Double producto(Double e1, Double e2) {
+		return e1 * e2;
 	}
 
 	@Override
-	public Elem division(Elem e1, Elem e2) {
-		return new Real(((Real) e1).getElem() / ((Real) e2).getElem());
+	public Double division(Double e1, Double e2) {
+		return e1 / e2;
 	}
 
 	@Override
-	public Elem getCero() {
-		return cero;
+	public Double getCero() {
+		return 0.0;
 	}
 
 	@Override
-	public Elem getUno() {
-		return uno;
+	public Double getUno() {
+		return 1.0;
 	}
 
 }
