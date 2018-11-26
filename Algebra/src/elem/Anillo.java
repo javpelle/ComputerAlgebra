@@ -11,5 +11,7 @@ public interface Anillo <T> {
 	public T producto(T e1, T e2);
 
 	public T getCero();
+	
+	public T clone(T e);
 
 }

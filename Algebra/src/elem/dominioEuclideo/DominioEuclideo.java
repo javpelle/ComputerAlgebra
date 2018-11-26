@@ -13,8 +13,7 @@ public abstract class DominioEuclideo <T> implements Anillo<T>{
 	public abstract T restoDiv(T e1, T e2);
 
 	public abstract int norma(T e);
-	
-	public abstract T clone(T elem);
+
 
 	public T mcd(T e1, T e2) {
 		if (igual(e2, getCero())) {

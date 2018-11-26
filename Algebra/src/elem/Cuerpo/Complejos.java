@@ -42,4 +42,9 @@ public class Complejos extends Cuerpo <Complejo> {
 		return uno;
 	}
 
+	@Override
+	public Complejo clone(Complejo e) {
+		return e.clone();
+	}
+
 }

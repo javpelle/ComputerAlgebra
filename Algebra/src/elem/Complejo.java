@@ -13,6 +13,10 @@ public class Complejo {
 	public boolean igual(Complejo complejo2) {
 		return real == complejo2.getReal() && compleja == complejo2.getCompleja();
 	}
+	
+	public boolean equals(Object o) {
+		return igual((Complejo) o);
+	}
 
 	public Complejo suma(Complejo complejo2) {
 		return new Complejo(real + complejo2.getReal(), compleja + complejo2.getCompleja());
@@ -47,5 +51,9 @@ public class Complejo {
 
 	public Double getCompleja() {
 		return compleja;
+	}
+	
+	public Complejo clone() {
+		return new Complejo(real, compleja);
 	}
 }

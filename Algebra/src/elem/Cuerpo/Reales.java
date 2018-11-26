@@ -37,4 +37,11 @@ public class Reales extends Cuerpo<Double> {
 		return 1.0;
 	}
 
+	@Override
+	public Double clone(Double e) {
+		return new Double(e);
+	}
+	
+	
+
 }
