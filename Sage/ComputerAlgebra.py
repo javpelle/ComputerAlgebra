@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[151]:
+# In[1]:
 
 
 get_ipython().magic(u'display latex')
@@ -75,7 +75,7 @@ def extendedEuclides(a, b, div_mod):
 
 # ## 1.3 Ejemplos en $\mathbb{Z}$
 
-# In[111]:
+# In[4]:
 
 
 def mod_int(a, b): return a % b
@@ -156,7 +156,7 @@ def chineseRemainder(coprimes, elems, div_mod, rem):
 
 # ## 2.1 Ejemplos en $\mathbb{Z}$
 
-# In[148]:
+# In[8]:
 
 
 def rem(a, b):
@@ -167,14 +167,14 @@ print chineseRemainder([3,5,7],[4,5,33], div_mod_int, rem)
 
 # # 3. MCD en DFU
 
-# In[149]:
+# In[9]:
 
 
 def gcdDFU(a, b):
     # a y b: elementos del DFU sobre los que se calcula el MCD
     # Devuelve gcd(a, b)
     if a.degree() < b.degree():
-        return mcdDFU(b, a)
+        return gcdDFU(b, a)
     while b != 0:
         q, r = (b.leading_coefficient()**(a.degree() - b.degree() + 1) * a).quo_rem(b)
         a = b
@@ -184,7 +184,7 @@ def gcdDFU(a, b):
 
 # ## 3.1 Ejemplos en $\mathbb{Z}[x]$
 
-# In[150]:
+# In[10]:
 
 
 R.<x> = ZZ[]
@@ -195,7 +195,7 @@ print gcdDFU(a, b).monic()
 
 # # 4. Inverso de un elemento en un cuerpo finito
 
-# In[124]:
+# In[11]:
 
 
 def inverseFiniteField(a):
@@ -209,7 +209,7 @@ def inverseFiniteField(a):
 
 # ## 4.1 Ejemplos en $\mathbb{Z}_p$
 
-# In[129]:
+# In[12]:
 
 
 Z7 = Integers(7)
@@ -246,11 +246,11 @@ def irreducibility_test(f, q):
     # f elemento de Fq
     # q entero de la forma p^n con p primo y n  natural
     # Devuelve True si irreducible, False en otro caso
-    h = (x) % f
+    h = f.variables()[0] % f
     l = f.degree()
     for k in range(1, l // 2 + 1):
         h = fast_exp_mod(h, q, f)
-        if gcd(h - x, f) != 1: return False
+        if gcd(h - f.variables()[0], f) != 1: return False
     return True
 
 
@@ -269,7 +269,7 @@ print "El polinomio ", g, " es irreducible en F49[x]?: ", irreducibility_test(g,
 
 # # 6. Logaritmo discreto en cuerpos $\mathbb{F}_q[x]/(f(x))$
 
-# In[130]:
+# In[15]:
 
 
 def baby_giant(v, g, ordG):
@@ -310,7 +310,7 @@ def baby_giant(v, g, ordG):
 
 # ## 6.1 Ejemplos en $\mathbb{F}(3^6)[x]/(bx + 2b)$
 
-# In[131]:
+# In[16]:
 
 
 K.<b> = GF(3^6)
@@ -356,7 +356,7 @@ def eq_degree_splitting(f, q, d):
 
 # ## 7.2 Equal degree-factorization
 
-# In[132]:
+# In[18]:
 
 
 def eq_degree_factorization(f, q, d):
@@ -373,7 +373,7 @@ def eq_degree_factorization(f, q, d):
 
 # ## 7.3 Algoritmo de factorización de un polinomio en cuerpo finito
 
-# In[133]:
+# In[19]:
 
 
 def poly_fact_finite_field(f, q):
@@ -403,7 +403,7 @@ def poly_fact_finite_field(f, q):
 
 # ## 7.4 Ejemplos en $\mathbb{F}(3)[x]$
 
-# In[135]:
+# In[20]:
 
 
 R.<x>=PolynomialRing(GF(3))
@@ -419,7 +419,7 @@ print poly_fact_finite_field(f2,3)
 # # 8. Algoritmo de factorización de Berlekamp en cuerpo finito
 # 
 
-# In[57]:
+# In[21]:
 
 
 def berlekamp(f, q):
@@ -481,7 +481,7 @@ def berlekamp(f, q):
 
 # ## 8.1 Ejemplos en $\mathbb{F}(7)[x]$
 
-# In[60]:
+# In[22]:
 
 
 R.<x> = PolynomialRing(GF(7))
@@ -505,7 +505,7 @@ else:
 
 # # 9. Algoritmos de factorización en $\mathbb{Z}[x]$
 
-# In[137]:
+# In[23]:
 
 
 def hensel_step(p, f, g, h, s, t, m):
@@ -556,7 +556,7 @@ def hensel_lift(p, l, f, g, h, s, t):
 
 # # 9.1 Ejemplo en $\mathbb{Z}[x]$ con modularidad 625
 
-# In[138]:
+# In[24]:
 
 
 m = 5
@@ -582,7 +582,7 @@ print "(g',h',s',t') mod %d =" % m^4,hensel_lift(m, 4, f, R(g5), R(h5), s, t)
 
 # # 10. Algoritmo de primalidad de *AKS*
 
-# In[141]:
+# In[25]:
 
 
 def ordr (r, n, m):
@@ -638,7 +638,7 @@ def AKS(n):
 
 # ## 10.1 Ejemplos
 
-# In[147]:
+# In[26]:
 
 
 print(AKS(18))
