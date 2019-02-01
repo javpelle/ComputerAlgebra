@@ -1,0 +1,5 @@
+Código realizado por Luis Aguirre Galindo y Javier Pellejero Ortega.
+
+Se incluyen los archivos:
+	- ComputerAlgebra.ipynb  -> Cuaderno para Sagemath, para probar los algoritmos.
+	- ComputerAlgebra.py     -> Código en Python, para importar como módulo, librería, etc. o usar como script.

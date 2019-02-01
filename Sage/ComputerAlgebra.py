@@ -75,7 +75,7 @@ def extendedEuclides(a, b, div_mod):
 
 # ## 1.3 Ejemplos en $\mathbb{Z}$
 
-# In[4]:
+# In[27]:
 
 
 def mod_int(a, b): return a % b
@@ -93,7 +93,7 @@ print(extendedEuclides(55, 22, div_mod_int))
 
 # ## 1.4 Ejemplos en $\mathbb{Q}[x]$
 
-# In[5]:
+# In[28]:
 
 
 def div_mod_pol(a, b): return a.quo_rem(b);
@@ -121,14 +121,16 @@ print(extendedEuclides_pol(c, d))
 
 # ## 1.5 Ejemplos en $\mathbb{F}(7)[x]$
 
-# In[6]:
+# In[30]:
 
 
 R.<x> = PolynomialRing(FiniteField(7))
 f = R.random_element(3)
 g = R.random_element(3)
+print f
+print g
 
-print(extendedEuclides_pol(f, g))
+print(extendedEuclides_pol(f, f*g))
 
 
 # # 2. Teorema chino del resto
@@ -156,7 +158,7 @@ def chineseRemainder(coprimes, elems, div_mod, rem):
 
 # ## 2.1 Ejemplos en $\mathbb{Z}$
 
-# In[8]:
+# In[31]:
 
 
 def rem(a, b):
@@ -184,7 +186,7 @@ def gcdDFU(a, b):
 
 # ## 3.1 Ejemplos en $\mathbb{Z}[x]$
 
-# In[10]:
+# In[32]:
 
 
 R.<x> = ZZ[]
@@ -209,7 +211,7 @@ def inverseFiniteField(a):
 
 # ## 4.1 Ejemplos en $\mathbb{Z}_p$
 
-# In[12]:
+# In[38]:
 
 
 Z7 = Integers(7)
@@ -256,7 +258,7 @@ def irreducibility_test(f, q):
 
 # ## 5.1 Ejemplos en $\mathbb{F}(7^2)[x]$
 
-# In[14]:
+# In[43]:
 
 
 order = 49
@@ -310,7 +312,7 @@ def baby_giant(v, g, ordG):
 
 # ## 6.1 Ejemplos en $\mathbb{F}(3^6)[x]/(bx + 2b)$
 
-# In[16]:
+# In[46]:
 
 
 K.<b> = GF(3^6)
@@ -333,7 +335,7 @@ print(baby_giant(Cx,Ax,ordA))
 
 # ## 7.1 Equal degree-splitting
 
-# In[17]:
+# In[47]:
 
 
 def eq_degree_splitting(f, q, d):
@@ -356,7 +358,7 @@ def eq_degree_splitting(f, q, d):
 
 # ## 7.2 Equal degree-factorization
 
-# In[18]:
+# In[48]:
 
 
 def eq_degree_factorization(f, q, d):
@@ -481,7 +483,7 @@ def berlekamp(f, q):
 
 # ## 8.1 Ejemplos en $\mathbb{F}(7)[x]$
 
-# In[22]:
+# In[52]:
 
 
 R.<x> = PolynomialRing(GF(7))
@@ -556,7 +558,7 @@ def hensel_lift(p, l, f, g, h, s, t):
 
 # # 9.1 Ejemplo en $\mathbb{Z}[x]$ con modularidad 625
 
-# In[24]:
+# In[53]:
 
 
 m = 5
@@ -638,11 +640,12 @@ def AKS(n):
 
 # ## 10.1 Ejemplos
 
-# In[26]:
+# In[58]:
 
 
 print(AKS(18))
 print(AKS(149))
 print(AKS(131))
 print(AKS(163))
+print(AKS(1013))
 
